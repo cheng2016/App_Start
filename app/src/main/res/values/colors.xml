@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#30D6DC</color>
+	
+	<color name="white">#ffffff</color><!--白色 -->
+
+    <color name="lightsteelblue">#b0c4de</color><!--亮钢兰色 -->
+
+    <color name="grey">#808080</color><!--灰色 -->
+
+    <color name="black">#000000</color><!--黑色 -->
+
+    <!-- 透明 -->
+
+    <color name="theme_color">#30D6DC</color>
+
+    <color name="enable_color">#CCCCCC</color>
+
+    <color name="item_line">#B4B4B4</color>
+
+    <color name="app_content_bg">#F7F7F7</color>
+
+    <color name="button_plan_color_">#DCDCDC</color>
+
+    <color name="splite_line">#DBDBDB</color>
+
+    <color name="disable_text">#999999</color>
+
+    <color name="confirm_text_color">#FF8484</color>
+    <color name="cancel_text_color">#30D6DC</color>
+
+
+    <color name="actionsheet_blue">#037BFF</color>
+    <color name="actionsheet_gray">#8F8F8F</color>
+</resources>
