@@ -1,13 +1,362 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/app_content_bg"
     android:orientation="vertical">
 
-    <include layout="@layout/action_bar" />
+    <com.scwang.smart.refresh.layout.SmartRefreshLayout
+        android:id="@+id/smart_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/widget_size_240">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/widget_size_200"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/hy_user_center_top_bg" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="25dp"
+
+                    android:paddingLeft="15dp"
+                    android:paddingTop="30dp"
+                    android:paddingRight="15dp">
+
+                    <ImageView
+                        android:id="@+id/hy_header_img"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/personal_avatar" />
+
+                    <TextView
+                        android:id="@+id/hy_center_user_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_toRightOf="@id/hy_header_img"
+                        android:text="用户号"
+                        android:textColor="@color/hy_text_color_balck1"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/hy_center_user_phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/hy_center_user_name"
+                        android:layout_alignLeft="@+id/hy_center_user_name"
+                        android:text="绑定手机:"
+                        android:textColor="@color/hy_text_color_gray"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_login_or_unbind"
+                        android:layout_width="60dp"
+                        android:layout_height="30dp"
+                        android:layout_alignTop="@+id/hy_center_user_name"
+                        android:layout_alignParentRight="true"
+                        android:background="@drawable/hy_radius_bule_bg"
+                        android:gravity="center"
+                        android:text="点击登录"
+                        android:textColor="@color/hy_text_color_white"
+                        android:textSize="12sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/widget_size_110"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/hy_white_stroke_bule_bg"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp">
 
 
 
+                        <TextView
+                            android:id="@+id/tv_user_money_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/widget_size_10"
+                            android:text="我的余额"
+                            android:layout_marginLeft="@dimen/widget_size_30"
+                            android:textColor="@color/hy_text_color_balck1"
+                            android:textSize="14sp" />
 
+                        <TextView
+                            android:id="@+id/tv_user_money"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tv_user_money_title"
+                            android:layout_marginTop="@dimen/widget_size_8"
+                            android:layout_marginLeft="@dimen/widget_size_30"
+                            android:singleLine="true"
+                            android:text="0元"
+                            android:textColor="@color/hy_text_color_red"
+                            android:textSize="18sp"
+                            tools:text="0" />
+
+                        <TextView
+                            android:id="@+id/tv_withdraw"
+                            android:layout_width="66dp"
+                            android:layout_below="@+id/tv_user_money"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="@dimen/widget_size_8"
+                            android:background="@drawable/hy_radius_bule_bg"
+                            android:gravity="center"
+                            android:text="提现"
+                            android:layout_alignLeft="@+id/tv_user_money_title"
+                            android:textColor="@color/hy_text_color_white"
+                            android:textSize="12sp" />
+
+
+
+                    <TextView
+                        android:layout_width="@dimen/widget_size_130"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="@dimen/widget_size_10"
+                        android:gravity="center"
+                        android:text="我的积分"
+                        android:textColor="@color/hy_text_color_balck1"
+                        android:textSize="14sp" />
+
+
+                    <TextView
+                        android:id="@+id/tv_user_score"
+                        android:layout_width="@dimen/widget_size_130"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="@dimen/widget_size_36"
+                        android:gravity="center"
+                        android:text="0"
+                        android:singleLine="true"
+                        android:textColor="@color/hy_text_color_red"
+                        android:textSize="18sp" />
+
+
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/img_game"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_margin="15dp"
+                android:scaleType="fitXY"
+                android:src="@mipmap/hy_ic_small_banner"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_user_wallet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@drawable/hy_user_wallet_icon"
+                    android:gravity="center"
+                    android:text="我的钱包"
+                    android:textColor="@color/hy_text_color_icon_blue"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tv_user_score_center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@drawable/hy_user_score_icon"
+                    android:gravity="center"
+                    android:text="我的积分"
+                    android:textColor="@color/hy_text_color_icon_blue"
+                    android:textSize="12sp"
+                    android:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/tv_user_message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@drawable/hy_user_message_icon"
+                    android:gravity="center"
+                    android:text="消息中心"
+                    android:textColor="@color/hy_text_color_icon_blue"
+                    android:textSize="12sp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tv_customer_service"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@drawable/hy_customer_service_icon"
+                    android:gravity="center"
+                    android:text="联系客服"
+                    android:textColor="@color/hy_text_color_icon_blue"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:padding="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="账号绑定"
+                    android:textColor="@color/hy_text_color_balck1"
+                    android:textSize="16sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/split_line_bg" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_bind_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_vertical"
+                        android:text="手机号"
+                        android:textColor="@color/hy_text_color_gray"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:id="@+id/img_bind_phone_arrow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/hy_arrows_right" />
+
+                    <TextView
+                        android:id="@+id/tv_bind_phone_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:layout_toLeftOf="@+id/img_bind_phone_arrow"
+                        android:text="未绑定"
+                        android:textColor="@color/hy_text_color_gray"
+                        android:textSize="12sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/split_line_bg" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_bind_weixin"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_vertical"
+                        android:text="微信"
+                        android:textColor="@color/hy_text_color_gray"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:id="@+id/img_bind_wx_arrow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/hy_arrows_right" />
+
+                    <TextView
+                        android:id="@+id/tv_bind_wx_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:layout_toLeftOf="@+id/img_bind_wx_arrow"
+                        android:text="未绑定"
+                        android:textColor="@color/hy_text_color_gray"
+                        android:textSize="12sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/split_line_bg" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_authentication"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_vertical"
+                        android:text="实名认证"
+                        android:textColor="@color/hy_text_color_gray"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:id="@+id/img_authentication_arrow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/hy_arrows_right" />
+
+                    <TextView
+                        android:id="@+id/tv_authentication_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:layout_toLeftOf="@+id/img_authentication_arrow"
+                        android:text="未认证"
+                        android:textColor="@color/hy_text_color_gray"
+                        android:textSize="12sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/split_line_bg" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </com.scwang.smart.refresh.layout.SmartRefreshLayout>
 </LinearLayout>

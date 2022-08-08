@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_item_gift_bg"
+        android:paddingBottom="@dimen/widget_size_10"
+        android:orientation="vertical">
+
+        <include layout="@layout/layout_game_gift" />
+
+
+        <include layout="@layout/welfare_game_gift_exlv_children_item"  />
+
+        <RelativeLayout
+            android:id="@+id/more_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_gift_game_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/widget_size_10"
+                android:layout_marginLeft="@dimen/widget_size_25"
+                android:includeFontPadding="false"
+                android:text="查看更多礼包(共3个)"
+                android:textColor="@color/hy_text_color_gray"
+                android:textSize="@dimen/font_size_12" />
+
+            <ImageView
+                android:id="@+id/img_gift_more_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/tv_gift_game_more"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/widget_size_25"
+                android:src="@mipmap/ic_welfare_arrow_down" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/widget_size_5"
+        android:background="@color/app_content_bg" />
+</LinearLayout>

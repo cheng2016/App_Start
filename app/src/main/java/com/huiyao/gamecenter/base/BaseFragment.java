@@ -9,14 +9,28 @@ import android.view.ViewGroup;
 
 import com.huiyao.gamecenter.util.Logger;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+
 import butterknife.ButterKnife;
+import me.jessyan.autosize.internal.CustomAdapt;
 
 /**
  * Created by chengzj on 2017/6/17.
  */
 
-public abstract class BaseFragment extends Fragment{
+public abstract class BaseFragment extends Fragment implements CustomAdapt {
     public String TAG = "";
+
+    @Override
+    public boolean isBaseOnWidth() {
+        return false;
+    }
+
+    @Override
+    public float getSizeInDp() {
+        return 0;
+    }
 
     @Nullable
     @Override
@@ -24,6 +38,7 @@ public abstract class BaseFragment extends Fragment{
         TAG = this.getClass().getSimpleName();
         View view = inflater.inflate(getLayoutId(),container,false);
         ButterKnife.bind(this, view);
+        EventBus.getDefault().register(this);
         Logger.d(TAG,"onCreateView");
         return view;
     }
@@ -42,11 +57,17 @@ public abstract class BaseFragment extends Fragment{
         initData();
     }
 
+    @Subscribe
+    public void onEventMainThread(Object event) {
+        Logger.d(TAG,"onEventMainThread");
+    }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         Logger.d(TAG,"onDestroyView");
         ButterKnife.unbind(this);
+        EventBus.getDefault().unregister(this);
     }
 
     protected abstract int getLayoutId();

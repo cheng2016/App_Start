@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#c9b985">
+
+    <RelativeLayout
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/widget_size_4"
+        android:layout_marginTop="@dimen/widget_size_20"
+        android:layout_marginRight="@dimen/widget_size_4"
+        app:layout_constraintTop_toTopOf="parent">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/layout2"
+            android:background="@drawable/ic_vip_bg"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/widget_size_8"
+            android:layout_marginTop="@dimen/widget_size_5"
+            android:text="当前等级"
+            android:textColor="#674a20"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:id="@+id/hy_header_img"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="@dimen/widget_size_50"
+            android:scaleType="fitCenter"
+            android:src="@drawable/personal_avatar" />
+
+        <ImageView
+            android:id="@+id/hy_user_level"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="55dp"
+            android:layout_toRightOf="@id/hy_header_img"
+            android:src="@drawable/ic_vip_level" />
+
+
+        <TextView
+            android:id="@+id/hy_center_user_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/hy_user_level"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/hy_header_img"
+            android:text="当前成长值: 0"
+            android:textColor="@color/hy_text_color_gray"
+            android:textSize="12sp" />
+
+        <ProgressBar
+            android:id="@+id/progressBar2"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="120dp"
+            android:layout_height="10dp"
+            android:layout_below="@id/hy_center_user_info"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/hy_header_img"
+            android:progress="70" />
+
+        <Button
+            android:id="@+id/detail_btn"
+            android:layout_width="@dimen/widget_size_80"
+            android:layout_height="@dimen/widget_size_32"
+            android:layout_alignTop="@+id/hy_user_level"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/widget_size_10"
+            android:background="@drawable/shape_vip_detail_button"
+            android:text="查看详情"
+            android:textColor="#74572b"
+            android:textSize="@dimen/font_size_12" />
+
+
+        <View
+            android:id="@+id/split_view"
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_below="@id/progressBar2"
+            android:layout_marginLeft="@dimen/widget_size_16"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="@dimen/widget_size_16"
+            android:background="@color/white" />
+        <!--                <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/widget_size_240"
+                            android:layout_below="@+id/split_view"
+                            android:layout_marginTop="30dp"
+                            android:orientation="vertical"></LinearLayout>-->
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/layout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/progressBar2"
+            android:layout_marginTop="50dp"
+            android:orientation="horizontal"
+            android:paddingRight="@dimen/widget_size_10"
+
+            android:paddingLeft="@dimen/widget_size_10">
+
+            <ImageView
+                android:id="@+id/view1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:src="@drawable/ic_vip_game"
+                app:layout_constraintDimensionRatio="H,1:1"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/view2" />
+
+            <ImageView
+                android:id="@+id/view2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+
+                android:layout_marginLeft="@dimen/widget_size_10"
+                android:layout_marginRight="@dimen/widget_size_10"
+                android:src="@drawable/ic_vip_zhuangshu"
+
+                app:layout_constraintDimensionRatio="H,1:1"
+                app:layout_constraintLeft_toRightOf="@+id/view1"
+                app:layout_constraintRight_toLeftOf="@+id/view3" />
+
+            <ImageView
+                android:id="@+id/view3"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+
+                android:src="@drawable/ic_vip_shengri"
+                app:layout_constraintDimensionRatio="H,1:1"
+                app:layout_constraintLeft_toRightOf="@+id/view2"
+                app:layout_constraintRight_toRightOf="parent" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_below="@id/layout1"
+            android:id="@+id/layout2"
+            android:layout_marginTop="@dimen/widget_size_10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/widget_size_10"
+            android:paddingRight="@dimen/widget_size_10"
+            android:paddingLeft="@dimen/widget_size_10">
+
+            <ImageView
+                android:id="@+id/view4"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:src="@drawable/ic_vip_game"
+                app:layout_constraintDimensionRatio="H,1:1"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/view5"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/view5"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+
+                android:layout_marginLeft="@dimen/widget_size_10"
+                android:layout_marginRight="@dimen/widget_size_10"
+                android:src="@drawable/ic_vip_zhuangshu"
+
+                app:layout_constraintDimensionRatio="H,1:1"
+                app:layout_constraintLeft_toRightOf="@+id/view4"
+                app:layout_constraintRight_toLeftOf="@+id/view6"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/view6"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:src="@drawable/ic_vip_shengri"
+
+                app:layout_constraintDimensionRatio="H,1:1"
+                app:layout_constraintLeft_toRightOf="@+id/view5"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </android.support.constraint.ConstraintLayout>
+
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/widget_size_6"
+        android:scaleType="fitStart"
+        android:src="@drawable/ic_vip_later"
+        app:layout_constraintTop_toBottomOf="@+id/top" />
+
+</android.support.constraint.ConstraintLayout>

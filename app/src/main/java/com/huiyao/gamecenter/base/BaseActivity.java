@@ -1,11 +1,8 @@
 package com.huiyao.gamecenter.base;
 
-import android.content.ComponentName;
 import android.content.Intent;
-import android.content.ServiceConnection;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -14,41 +11,47 @@ import com.huiyao.gamecenter.module.service.BindService;
 import com.huiyao.gamecenter.util.AppManager;
 import com.huiyao.gamecenter.util.Logger;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+
 import butterknife.ButterKnife;
+import ezy.ui.layout.LoadingLayout;
+import me.jessyan.autosize.internal.CustomAdapt;
 
 /**
  * Created by chengzj on 2017/6/17.
  */
 
-public abstract class BaseActivity extends AppCompatActivity{
-    public String TAG = "";
-    protected BindService mGPSService;
+public abstract class BaseActivity extends AppCompatActivity implements CustomAdapt  {
+    public String TAG = "BaseActivity";
 
-    protected ServiceConnection mServiceConnection = new ServiceConnection() {
-        @Override
-        public void onServiceConnected(ComponentName name, IBinder service) {
-            BindService.MyBinder binder = (BindService.MyBinder) service;
-            mGPSService = binder.getService();
-            Logger.v(TAG,"onServiceConnected");
-        }
-        //client 和service连接意外丢失时，会调用该方法
-        @Override
-        public void onServiceDisconnected(ComponentName name) {
-            Logger.v(TAG,"onServiceDisconnected");
-        }
-    };
+    @Override
+    public boolean isBaseOnWidth() {
+        return false;
+    }
+
+    @Override
+    public float getSizeInDp() {
+        return 0;
+    }
+
+    protected LoadingLayout mLoadingView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         TAG = this.getClass().getSimpleName();
         super.onCreate(savedInstanceState);
+//        CustomDensityUtil.setCustomDensity(this,getApplication());
+        Logger.d(TAG,"onDestroy");
         setContentView(getLayoutId());
         ButterKnife.bind(this);
+        EventBus.getDefault().register(this);
         //绑定服务
         Intent intent = new Intent(this, BindService.class);
         intent.putExtra("from", TAG);
-        bindService(intent,mServiceConnection,BIND_AUTO_CREATE);
+//        bindService(intent,mServiceConnection,BIND_AUTO_CREATE);
         AppManager.getInstance().addActivity(this);
+        mLoadingView = LoadingLayout.wrap(this);
         changeStatusBarTextColor(true);
         initView(savedInstanceState);
         initData();
@@ -68,18 +71,23 @@ public abstract class BaseActivity extends AppCompatActivity{
         }
     }
 
-
     protected abstract int getLayoutId();
 
     protected abstract void initView(Bundle savedInstanceState);
 
     protected abstract void initData();
 
+    @Subscribe
+    public void onEventMainThread(Object event) {
+        Logger.d(TAG,"onEventMainThread");
+    }
+
     @Override
     protected void onDestroy() {
+        Logger.d(TAG,"onDestroy");
         super.onDestroy();
-        //解绑服务
-        unbindService(mServiceConnection);
+        ButterKnife.unbind(this);
+        EventBus.getDefault().unregister(this);
         AppManager.getInstance().finishActivity(this);
     }
 }

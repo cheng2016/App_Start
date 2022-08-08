@@ -1,0 +1,140 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/hy_radius_white_bg"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:padding="20dp">
+
+
+    <RelativeLayout
+        android:id="@+id/hy_dialog_title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+        <LinearLayout
+            android:id="@+id/hy_edit_phone_layout"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/u9pay_edittext_bg"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="7dp"
+            android:paddingRight="7dp"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitCenter"
+                android:src="@drawable/hy_phone_gray_icon"
+                />
+
+            <com.huiyao.gamecenter.view.HYGame_EditText
+                android:id="@+id/hy_edit_user_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="@string/u9pay_account_phone_hint"
+                android:inputType="phone"
+                android:paddingLeft="6dp"
+                android:singleLine="true"
+                android:textSize="16.0sp"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/hy_edit_safety_layout"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/hy_edit_phone_layout"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/u9pay_edittext_bg"
+            android:gravity="center_vertical"
+            android:paddingLeft="7dp"
+            android:paddingRight="7dp"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitCenter"
+                android:src="@drawable/hy_loading_safety"/>
+
+            <com.huiyao.gamecenter.view.HYGame_EditText
+                android:id="@+id/hy_edit_phone_key"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:digits="@string/u9pay_letter_number_password"
+                android:hint="@string/u9pay_account_phone_key_hint"
+                android:inputType="number"
+                android:singleLine="true"
+                android:textSize="16.0sp"
+                android:paddingLeft="6dp"/>
+
+
+            <TextView
+                android:id="@+id/hy_get_phone_key"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/u9pay_login_phone_key"
+                android:textColor="@drawable/hy_black_gray_text_color_selector"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+
+
+           <!-- <ImageView
+                android:id="@+id/hy_phone_login_cb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/hy_login_argrement_uncheck"
+                android:padding="10dp"/>-->
+
+            <CheckBox
+                android:id="@+id/hy_phone_login_cb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:layout_below="@id/hy_edit_safety_layout"
+                android:drawablePadding="6dp"
+                android:checked="true"
+                android:text="@string/u9pay_login_agree"
+                android:textColor="@color/hy_text_color_balck2"
+                android:textSize="12sp"
+                android:button="@null">
+            </CheckBox>
+            <TextView
+                android:id="@+id/hy_phone_login_agree_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/hy_phone_login_cb"
+                android:layout_marginLeft="10dp"
+                android:text="@string/u9pay_login_agree_economic"
+                android:textColor="@color/hy_text_color_blue"
+                android:textSize="12sp"/>
+
+        <Button
+            android:id="@+id/hy_login_register_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="45dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/hy_radius_bule_bg"
+            android:text="登录"
+            android:textColor="@color/hy_text_color_white"
+            android:textSize="15sp"/>
+
+    </RelativeLayout>
+
+
+
+
+
+</RelativeLayout>

@@ -125,12 +125,17 @@ public class AppUtils {
     /**
      * 打开指定包名的App
      */
-    public void openOtherApp(Context context, String packageName) {
-        PackageManager manager = context.getPackageManager();
-        Intent launchIntentForPackage = manager.getLaunchIntentForPackage(packageName);
-        if (launchIntentForPackage != null) {
-            context.startActivity(launchIntentForPackage);
+    public static void openOtherApp(Context context, String packageName) {
+        try {
+            PackageManager manager = context.getPackageManager();
+            Intent launchIntentForPackage = manager.getLaunchIntentForPackage(packageName);
+            if (launchIntentForPackage != null) {
+                context.startActivity(launchIntentForPackage);
+            }
+        }catch (Exception e){
+            Logger.i(packageName+"打开游戏包异常>>>"+e.getMessage());
         }
+
     }
 
     /**

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_game_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/hy_gift_game_icon"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="@dimen/widget_size_25"
+            android:layout_marginTop="@dimen/widget_size_18"
+            android:layout_marginBottom="@dimen/widget_size_1"
+            android:scaleType="fitXY"
+            android:src="@mipmap/hy_first_icon" />
+
+        <TextView
+            android:id="@+id/tv_gift_game_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/hy_gift_game_icon"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="@dimen/widget_size_5"
+            android:layout_toRightOf="@+id/hy_gift_game_icon"
+            android:text="勇者大冒险"
+            android:textColor="@color/hy_text_color_balck1"
+            android:textSize="@dimen/font_size_15" />
+
+        <TextView
+            android:id="@+id/tv_case_game_describe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_gift_game_name"
+            android:layout_alignLeft="@+id/tv_gift_game_name"
+            android:layout_alignRight="@+id/view_btn"
+            android:layout_marginTop="10dp"
+            android:text="原始人部落冒险"
+            android:maxLines="3"
+            android:ellipsize="end"
+            android:textColor="@color/hy_text_color_gray"
+            android:textSize="@dimen/font_size_13" />
+
+        <Button
+            android:id="@+id/tv_game_download"
+            android:layout_width="@dimen/widget_size_70"
+            android:layout_height="@dimen/widget_size_30"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/tv_gift_game_name"
+            android:layout_marginRight="@dimen/widget_size_15"
+            android:background="@drawable/shape_download_bg"
+            android:gravity="center"
+            android:paddingLeft="8dp"
+            android:paddingTop="4dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="4dp"
+            android:text="立即下载"
+            android:textColor="@color/hy_text_color_white"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:visibility="visible" />
+    </RelativeLayout>
+</LinearLayout>

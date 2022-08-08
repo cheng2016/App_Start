@@ -14,5 +14,29 @@
     <string name="errcode_unknown">发送返回</string>
 
     <!-- Strings related to login -->
+    <!--福利界面-->
+    <string name="welfare_title">福利</string>
+
+
+    <!--实名认证弹窗相关文字-->
+    <string name="u9pay_letter_number_account">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890@.</string>
+    <string name="u9pay_letter_number_password">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890@.,`/~\\!?:;[]{}-_+=-#$%^*()</string>
+    <string name="u9pay_login_authentication_name_hint">与证件名一致</string>
+    <string name="u9pay_login_authentication_number_hint">请输入证件号码</string>
+    <string name="u9pay_login_authentication_title">实名认证</string>
+    <string name="u9pay_login_authentication_title_hint">用户实名认证</string>
+    <string name="u9pay_login_authentication_bottom_hint">根据国家新闻出版署发布《关于防止未成年人沉迷网络游戏的通知》,游戏用户应使用有效身份证件实名认证,我们承诺将依法保护您的个人信息安全</string>
+    <string name="u9pay_login_authentication_gift_hint"><Data><![CDATA[成功认证后可获得实名<font color="#FF2D2D">认证礼包</font>一份]]></Data></string>
+    <string name="u9pay_account_login_hint">请输入账号</string>
+    <string name="u9pay_account_phone_hint">请输入手机号</string>
+    <string name="u9pay_account_username_hint">请输入账号</string>
+    <string name="u9pay_account_phone_key_hint">请输入验证码</string>
+    <string name="u9pay_login_phone_key">获取验证码</string>
+    <string name="u9pay_login_agree">登录则视为您已同意以下协议的全部内容</string>
+    <string name="u9pay_login_agree_economic">《共享经济合作伙伴协议》</string>
     <!-- END -->
+    <string name="hy_withdraw_tips">小额提现秒到账，大额提现一个工作日内到账</string>
+    <string name="hy_bindwx_tips">1.微信账号必须是实名认证过的账号。\n2.输入的姓名和身份证必须与微信账号认证的姓名和身份证保持一致。\n3.我们承诺不会向任何人透露你的个人信息。</string>
+    <string name="hy_no_zone_info_tips">您还未在该游戏注册角色,请下载游戏并注册后点击刷新,游戏角色信息显示后才能获取奖励。</string>
+
 </resources>

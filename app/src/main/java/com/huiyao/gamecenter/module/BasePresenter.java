@@ -5,7 +5,5 @@ package com.huiyao.gamecenter.module;
  */
 
 public interface BasePresenter {
-    void subscribe();
 
-    void unsubscribe();
 }

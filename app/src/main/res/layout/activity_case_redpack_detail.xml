@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_content_bg"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/layout_title"
+        layout="@layout/action_bar" />
+    <!--游戏信息描述 及 个人信息展示-->
+    <RelativeLayout
+        android:id="@+id/rl_top_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout_title"
+        android:background="@color/white"
+        android:padding="15dp">
+
+        <ImageView
+            android:id="@+id/hy_case_game_icon"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/hy_first_icon" />
+
+        <TextView
+            android:id="@+id/tv_case_game_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="2dp"
+            android:layout_toRightOf="@+id/hy_case_game_icon"
+            android:text=""
+            android:textColor="@color/hy_text_color_balck1"
+            android:textSize="14sp"
+            tools:text="勇者大冒险" />
+
+        <TextView
+            android:id="@+id/tv_case_game_periods"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/tv_case_game_name"
+            android:layout_marginLeft="4dp"
+            android:layout_toRightOf="@+id/tv_case_game_name"
+            android:background="@drawable/hy_transparent_stroke_bule_bg"
+            android:paddingLeft="6dp"
+            android:paddingRight="6dp"
+            android:text="1期"
+            android:textColor="@color/hy_text_color_blue"
+            android:textSize="12sp"
+            tools:text="1期" />
+
+        <TextView
+            android:id="@+id/tv_case_game_describe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_case_game_name"
+            android:layout_alignLeft="@+id/tv_case_game_name"
+            android:layout_marginTop="5dp"
+            android:text=""
+            android:textColor="@color/hy_text_color_gray"
+            android:textSize="10sp"
+            tools:text="原始人部落冒险" />
+
+        <TextView
+            android:id="@+id/tv_case_safe_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_case_game_describe"
+            android:layout_alignLeft="@+id/tv_case_game_describe"
+            android:layout_marginTop="5dp"
+            android:text="已验证.无病毒.无广告"
+            android:textColor="@color/hy_text_color_green"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_case_redpack_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/tv_case_game_name"
+            android:layout_alignParentRight="true"
+            android:text=""
+            android:textColor="@color/hy_text_color_red"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            tools:text="+0.00元" />
+        <TextView
+            android:id="@+id/tv_case_redpack_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/tv_case_safe_tag"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="-4dp"
+            android:text="剩余0天"
+            android:textColor="@color/hy_text_color_gray"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+
+        <View
+            android:id="@+id/line_top"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_below="@+id/hy_case_game_icon"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/hy_text_color_gray" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/line_top">
+
+            <TextView
+                android:id="@+id/tv_register_tag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/hy_text_color_balck1"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:text="尚未注册(账号ID:暂无)" />
+
+            <TextView
+                android:id="@+id/tv_refrsh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:padding="2dp"
+                android:text="刷新"
+                android:drawableLeft="@drawable/hy_refrsh_icon"
+                android:textColor="@color/hy_text_color_yellow"
+                android:textSize="12sp"></TextView>
+
+            <TextView
+                android:id="@+id/tv_switch_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/tv_refrsh"
+                android:layout_marginRight="20dp"
+                android:padding="2dp"
+                android:text="切换区服"
+                android:drawableLeft="@drawable/hy_swith_account_icon"
+                android:textColor="@color/hy_text_color_blue"
+                android:textSize="12sp"></TextView>
+
+            <TextView
+                android:id="@+id/tv_uninstalled_tips"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_register_tag"
+                android:layout_marginTop="15dp"
+                android:text=""
+                android:textColor="@color/hy_text_color_balck1"
+                android:textSize="12sp"
+                android:visibility="gone"></TextView>
+
+            <RelativeLayout
+                android:id="@+id/rl_zone_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_register_tag"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:visibility="visible">
+
+                <TextView
+                    android:id="@+id/tv_role_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="角色名称："
+                    android:textColor="@color/hy_text_color_balck1"
+                    android:textSize="12sp"></TextView>
+
+                <TextView
+                    android:id="@+id/tv_zone_name"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/tv_role_name"
+                    android:layout_alignParentRight="true"
+                    android:text="区服："
+                    android:textColor="@color/hy_text_color_balck1"
+                    android:textSize="12sp"></TextView>
+
+                <TextView
+                    android:id="@+id/tv_role_level"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_role_name"
+                    android:layout_marginTop="10dp"
+                    android:text="当前等级："
+                    android:textColor="@color/hy_text_color_balck1"
+                    android:textSize="12sp"></TextView>
+
+                <TextView
+                    android:id="@+id/tv_role_recharge_noney"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_role_name"
+                    android:layout_alignLeft="@+id/tv_zone_name"
+                    android:layout_marginTop="10dp"
+                    android:text="累计充值："
+                    android:textColor="@color/hy_text_color_balck1"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+            <TextView
+                android:id="@+id/tv_no_zone_info_tip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:layout_below="@+id/tv_register_tag"
+                android:text="@string/hy_no_zone_info_tips"
+                android:textColor="@color/hy_text_color_balck1"
+                android:textSize="14sp"
+                android:visibility="invisible">
+            </TextView>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/line_center"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_below="@+id/rl_top_info"
+        android:background="@color/app_base_gray_bg"></View>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/line_center"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="60dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <RadioGroup
+            android:id="@+id/top_menu"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="2dp"
+
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/level_radio"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/hy_radiobutton_blue_line"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:text="等级红包"
+                android:textColor="@drawable/hy_black_gray_text_color_selector"
+                android:textSize="14sp"
+                android:visibility="visible" />
+
+            <RadioButton
+                android:id="@+id/recharge_radio"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:background="@drawable/hy_radiobutton_blue_line"
+                android:button="@null"
+                android:gravity="center"
+                android:text="充值红包"
+                android:textColor="@drawable/hy_black_gray_text_color_selector"
+                android:textSize="14sp"
+                android:visibility="visible" />
+
+            <RadioButton
+                android:id="@+id/gold_radio"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:background="@drawable/hy_radiobutton_blue_line"
+                android:button="@null"
+                android:gravity="center"
+                android:text="赢金红包"
+                android:textColor="@drawable/hy_black_gray_text_color_selector"
+                android:textSize="14sp"
+                android:visibility="gone" />
+
+            <RadioButton
+                android:id="@+id/ranking_radio"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:background="@drawable/hy_radiobutton_blue_line"
+                android:button="@null"
+                android:gravity="center"
+                android:text="排名红包"
+                android:textColor="@drawable/hy_black_gray_text_color_selector"
+                android:textSize="14sp"
+                android:visibility="gone" />
+
+        </RadioGroup>
+
+        <com.huiyao.gamecenter.view.SimpleRefreshLayout
+            android:id="@+id/hy_lv_refreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp">
+
+            <ListView
+                android:id="@+id/hy_float_redpack_detail_listview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:divider="@color/app_base_gray_bg"
+                android:dividerHeight="0.5dp"
+                android:scrollbars="none" />
+        </com.huiyao.gamecenter.view.SimpleRefreshLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_start_game"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:background="@color/hy_text_color_yellow"
+        android:text="启动游戏"
+        android:textColor="@color/hy_text_color_white"
+        android:textSize="14sp"/>
+</RelativeLayout>

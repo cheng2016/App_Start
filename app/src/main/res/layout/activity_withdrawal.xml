@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_content_bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include layout="@layout/action_bar" />
+
+
+        <ScrollView
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/widget_size_100"
+                    android:layout_marginLeft="@dimen/widget_size_10"
+                    android:layout_marginTop="@dimen/widget_size_6"
+                    android:layout_marginRight="@dimen/widget_size_10"
+                    android:background="@drawable/shape_withdrawal_bg"
+                    android:padding="@dimen/widget_size_5">
+
+                    <TextView
+                        android:id="@+id/my_wallet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/widget_size_20"
+                        android:layout_marginTop="@dimen/widget_size_15"
+                        android:text="我的红包"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_size_16" />
+
+                    <TextView
+                        android:id="@+id/wallet_amount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/my_wallet"
+                        android:layout_marginLeft="@dimen/widget_size_20"
+                        android:layout_marginTop="@dimen/widget_size_15"
+                        android:text="0.00元"
+                        android:textColor="@color/hy_text_color_red"
+                        android:textSize="@dimen/font_size_16" />
+
+
+                    <TextView
+                        android:id="@+id/walfare_record"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@id/my_wallet"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="15dp"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="2dp"
+                        android:paddingRight="10dp"
+                        android:paddingBottom="2dp"
+                        android:text="提现记录"
+                        android:textSize="12sp" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/widget_size_100"
+                    android:layout_marginLeft="@dimen/widget_size_10"
+                    android:layout_marginTop="@dimen/widget_size_6"
+                    android:layout_marginRight="@dimen/widget_size_10"
+                    android:background="@drawable/shape_withdrawal_bg"
+                    android:padding="@dimen/widget_size_5">
+
+                    <TextView
+                        android:id="@+id/withdrawal_way"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/widget_size_20"
+                        android:layout_marginTop="@dimen/widget_size_15"
+                        android:text="提现方式"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_size_16" />
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_below="@+id/withdrawal_way"
+                        android:layout_marginLeft="@dimen/widget_size_10"
+                        android:layout_marginTop="@dimen/widget_size_10"
+                        android:src="@drawable/hy_weixin_icon"
+                        android:text="0.00元"
+                        android:textColor="@color/hy_text_color_red"
+                        android:textSize="@dimen/font_size_18" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@id/withdrawal_way"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="15dp"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="2dp"
+                        android:paddingRight="10dp"
+                        android:paddingBottom="2dp"
+                        android:text=""
+                        android:textSize="12sp" />
+
+                </RelativeLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/hy_flash_redpack_rl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/widget_size_10"
+                    android:layout_marginTop="@dimen/widget_size_6"
+                    android:layout_marginRight="@dimen/widget_size_10"
+                    android:paddingBottom="@dimen/widget_size_20"
+                    android:background="@drawable/shape_withdrawal_bg"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/hy_flash_withdrawal_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/hy_flash_redpack_tv"
+                        android:layout_marginLeft="@dimen/widget_size_20"
+                        android:layout_marginTop="8dp"
+                        android:text="提现金额"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/font_size_16" />
+
+                    <GridView
+                        android:id="@+id/hygame_lightning_gold_gridview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/hy_flash_redpack_tv"
+                        android:layout_marginLeft="@dimen/widget_size_20"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="@dimen/widget_size_20"
+                        android:background="@null"
+                        android:columnWidth="60dp"
+                        android:gravity="center"
+                        android:horizontalSpacing="10dp"
+                        android:listSelector="@android:color/transparent"
+                        android:numColumns="3"
+                        android:stretchMode="columnWidth"
+                        android:verticalSpacing="20dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/widget_size_10"
+                    android:layout_marginRight="@dimen/widget_size_10"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/widget_size_15"
+                        android:layout_marginTop="@dimen/widget_size_15"
+                        android:text="提现说明"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_size_16" />
+
+                    <TextView
+                        android:id="@+id/withdrawal_description"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/my_wallet"
+                        android:layout_marginLeft="@dimen/widget_size_15"
+                        android:layout_marginTop="@dimen/widget_size_5"
+                        android:layout_marginRight="@dimen/widget_size_15"
+                        android:layout_marginBottom="@dimen/widget_size_15"
+                        android:lineSpacingExtra="4dp"
+                        android:text="Lorem ipsum dolorsit amet, consectetur adipiscing elit.Aenean euismod bibendum laoreet. Proin gravida dolorsit amet lacus accumsan et viverra justo commodo.Proinsodales pulvinar tempor.cum sociis natoque penatibuset magnis dis parturient montes,
+Lorem ipsum dolorsit，consectetur adipicing elit.Aenean euismod bibendum laoreet."
+                        android:textColor="@color/actionsheet_gray"
+                        android:textSize="@dimen/font_size_12" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/withdraw_btn"
+        android:layout_width="@dimen/widget_size_180"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/widget_size_20"
+        android:background="@drawable/shape_withdrawal_btn_bg"
+        android:gravity="center"
+        android:text="立即提现"
+        android:textColor="@color/hy_text_color_white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:visibility="visible" />
+</RelativeLayout>

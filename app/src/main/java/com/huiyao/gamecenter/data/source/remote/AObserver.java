@@ -3,9 +3,10 @@ package com.huiyao.gamecenter.data.source.remote;
 import android.content.Context;
 import android.net.ParseException;
 
-import com.huiyao.gamecenter.App;
-import com.huiyao.gamecenter.util.ToastUtils;
 import com.google.gson.JsonParseException;
+import com.huiyao.gamecenter.App;
+import com.huiyao.gamecenter.util.Logger;
+import com.huiyao.gamecenter.util.ToastUtils;
 
 import org.apache.http.conn.ConnectTimeoutException;
 import org.json.JSONException;
@@ -80,7 +81,8 @@ public abstract class AObserver<T> implements Observer<T> {
 
     @Override
     public void onSubscribe(Disposable d) {
-        ToastUtils.showShort(App.getInstance(), "建立连接");
+        //ToastUtils.showShort(App.getInstance(), "建立连接");
+        Logger.d("建立连接");
         //可以弹出Dialog 提示正在加载
         showDialog();
     }
@@ -89,9 +91,13 @@ public abstract class AObserver<T> implements Observer<T> {
 
     protected abstract void showDialog();
 
+
+
+
     @Override
     public void onComplete() {
-        ToastUtils.showShort(App.getInstance(), "请求完毕");
+        //ToastUtils.showShort(App.getInstance(), "请求完毕");
+        Logger.d("请求完毕");
         //可以取消Dialog 加载完毕
         hideDialog();
     }

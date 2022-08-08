@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <include
+        android:id="@+id/layout_title"
+        layout="@layout/action_bar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/layout_title">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/widget_size_140">
+
+
+                <ImageView
+                    android:id="@+id/game_img"
+                    android:layout_width="@dimen/widget_size_90"
+                    android:layout_height="@dimen/widget_size_90"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/widget_size_20"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/hy_first_icon" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/game_img"
+                    android:layout_marginLeft="@dimen/widget_size_16"
+                    android:layout_toLeftOf="@+id/download_tv"
+                    android:layout_toRightOf="@+id/game_img"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/game_name_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="游戏名"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_size_15" />
+
+                    <TextView
+                        android:id="@+id/game_type_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/widget_size_10"
+                        android:ellipsize="end"
+                        android:maxEms="20"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:text="游戏类型： "
+                        android:textColor="@color/grey"
+                        android:textSize="@dimen/font_size_13" />
+
+                    <TextView
+                        android:id="@+id/game_size_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/widget_size_10"
+                        android:text="游戏大小： "
+                        android:textColor="@color/grey"
+                        android:textSize="@dimen/font_size_13" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/download_tv"
+                    android:layout_width="@dimen/widget_size_70"
+                    android:layout_height="@dimen/widget_size_32"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/widget_size_20"
+                    android:background="@drawable/shape_download_bg"
+                    android:gravity="center"
+                    android:text="立即下载"
+                    android:textSize="@dimen/font_size_15"
+                    android:textColor="@color/white" />
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:layout_marginLeft="@dimen/widget_size_20"
+                android:layout_marginRight="@dimen/widget_size_20"
+                android:background="@color/split_line_bg" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/widget_size_20"
+                android:layout_marginTop="@dimen/widget_size_15"
+                android:text="游戏简介"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_size_16" />
+
+            <TextView
+                android:id="@+id/game_desc_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/widget_size_20"
+                android:layout_marginTop="@dimen/widget_size_10"
+                android:layout_marginRight="@dimen/widget_size_20"
+                android:lineSpacingExtra="9dp"
+                android:text=""
+                android:textColor="@color/grey"
+                android:textSize="@dimen/font_size_14" />
+
+            <com.stx.xhb.xbanner.XBanner xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/xbanner"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:layout_marginLeft="@dimen/widget_size_10"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="@dimen/widget_size_80"
+                app:AutoPlayTime="3000"
+                app:bannerBottomMargin="20dp"
+                app:clipChildrenRightMargin="120dp"
+                app:clipChildrenLeftMargin="10dp"
+                app:isAutoPlay="false"
+                app:isClipChildrenMode="true"
+                app:isHandLoop="true"
+                app:isShowIndicatorOnlyOne="true"
+                app:isShowNumberIndicator="false"
+                app:pageChangeDuration="800"
+                app:pointNormal="@drawable/shape_noraml"
+                app:pointSelect="@drawable/shape_selected"
+                app:pointsContainerBackground="@android:color/transparent"
+                app:pointsPosition="CENTER" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btn_start_game"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:background="@color/hy_text_color_yellow"
+        android:text="启动游戏"
+        android:textColor="@color/hy_text_color_white"
+        android:textSize="14sp" />
+</RelativeLayout>

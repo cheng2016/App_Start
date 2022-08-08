@@ -1,0 +1,176 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_content_bg"
+    android:orientation="vertical">
+
+
+    <com.youth.banner.Banner xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/widget_size_150"
+        android:layout_marginLeft="@dimen/widget_size_6"
+        android:layout_marginTop="@dimen/widget_size_16"
+        android:layout_marginRight="@dimen/widget_size_6"
+        android:layout_marginBottom="@dimen/widget_size_4"
+        app:indicator_drawable_selected="@drawable/shape_banner_select"
+        app:indicator_drawable_unselected="@drawable/shape_banner_unselect"
+        app:indicator_height="3dp"
+        app:indicator_margin="4dp"
+        app:indicator_width="20dp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/widget_size_3"
+        android:background="#ffffff"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/sign_in"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/widget_size_8"
+            android:text="签到打卡"
+            android:drawablePadding="@dimen/widget_size_3"
+            android:visibility="visible"
+            android:drawableTop="@drawable/ic_sign_in"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_size_10"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/invite_friends"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/widget_size_8"
+            android:drawablePadding="@dimen/widget_size_3"
+            android:text="邀请好友"
+            android:drawableTop="@drawable/ic_invite_friends"
+            android:gravity="center"
+            android:textSize="@dimen/font_size_10"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/activity_center"
+            android:drawableTop="@drawable/ic_first_activity"
+            android:layout_width="0dp"
+            android:drawablePadding="@dimen/widget_size_3"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/widget_size_8"
+            android:text="活动中心"
+            android:gravity="center"
+            android:visibility="gone"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_size_10"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/widget_size_8"
+            android:text="火爆游戏推荐"
+            android:textSize="@dimen/font_size_16"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_marginLeft="@dimen/widget_size_16"
+            android:layout_marginRight="@dimen/widget_size_16"
+            android:layout_marginBottom="@dimen/widget_size_10"
+            android:background="@color/split_line_bg" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/widget_size_110"
+            android:background="#ffffff"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/widget_size_16"
+            android:paddingRight="@dimen/widget_size_16">
+
+
+            <com.huiyao.gamecenter.view.NoScrollGridView
+                android:id="@+id/gridview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:columnWidth="@dimen/widget_size_180"
+                android:horizontalSpacing="@dimen/widget_size_8"
+                android:numColumns="3" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/widget_size_16"
+            android:orientation="vertical">
+
+            <com.stx.xhb.xbanner.XBanner
+                android:id="@+id/hot_banner"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/widget_size_120"
+                app:AutoPlayTime="3000"
+                app:isAutoPlay="false"
+                app:isClipChildrenMode="false"
+                app:isHandLoop="true"
+                app:isShowIndicatorOnlyOne="true"
+                app:isShowNumberIndicator="false"
+                app:viewpagerMargin="50dp"
+                app:pageChangeDuration="800"
+                app:pointsContainerBackground="@drawable/shape_round_8dp"
+                app:pointsPosition="RIGHT"
+                app:pointsVisibility="false"
+                app:tipTextSize="14sp"
+                app:isShowTips="true"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/widget_size_8"
+        android:background="#ffffff"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/widget_size_6"
+            android:text="精品游戏推荐"
+            android:textSize="@dimen/font_size_16"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_marginLeft="@dimen/widget_size_16"
+            android:layout_marginRight="@dimen/widget_size_16"
+            android:background="@color/split_line_bg" />
+    </LinearLayout>
+
+</LinearLayout>

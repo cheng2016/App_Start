@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/ll_bg_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:background="@drawable/hy_stroke_gray_green_bg_selector"
+        android:padding="10dp">
+    <TextView
+        android:id="@+id/tv_zone_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/hy_text_color_balck1"
+        android:textSize="12sp"
+        android:text = "一区">
+    </TextView>
+    <View
+        android:layout_width="1px"
+        android:layout_height="match_parent"
+        android:background="@color/hy_text_color_gray"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"/>
+    <TextView
+        android:id="@+id/tv_role_level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/hy_text_color_balck1"
+        android:textSize="12sp"
+        android:text = "张三  100级">
+    </TextView>
+    <TextView
+        android:id="@+id/tv_checked"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:textColor="@color/hy_text_color_gray"
+        android:textSize="10sp"
+        android:text="当前选择">
+    </TextView>
+    </LinearLayout>
+</LinearLayout>

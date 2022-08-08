@@ -13,9 +13,10 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
+import com.google.gson.Gson;
 import com.huiyao.gamecenter.R;
 import com.huiyao.gamecenter.util.Logger;
-import com.google.gson.Gson;
+import com.huiyao.gamecenter.util.Utils;
 import com.tencent.mm.opensdk.constants.ConstantsAPI;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
@@ -33,14 +34,17 @@ public class WXEntryActivity extends AppCompatActivity implements IWXAPIEventHan
     // IWXAPI 是第三方app和微信通信的openapi接口
     private static IWXAPI api;
 
-    public final static String WX_APP_ID = "wx55bdf002ebc4e7d7";
+    public static String WX_APP_ID = "";
     public final static String WX_APP_SECRET = "ccd9bd049967d8ff017ae751f8597fb5";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        WX_APP_ID = Utils.getManifestMeta(this,"WX_APP_ID");
+
         api = WXAPIFactory.createWXAPI(this, WX_APP_ID, false);
-        api.registerApp(WX_APP_ID);
+        //api.registerApp(WX_APP_ID);
         api.handleIntent(getIntent(), this);
     }
 

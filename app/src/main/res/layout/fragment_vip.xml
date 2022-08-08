@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#c9b985">
+
+    <com.scwang.smart.refresh.layout.SmartRefreshLayout
+        android:id="@+id/smart_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/top"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/widget_size_4"
+                android:layout_marginTop="@dimen/widget_size_20"
+                android:layout_marginRight="@dimen/widget_size_4"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/recyclerView"
+                    android:layout_alignParentTop="true"
+                    android:background="@drawable/ic_vip_bg" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/widget_size_8"
+                    android:layout_marginTop="@dimen/widget_size_5"
+                    android:text="当前等级"
+                    android:textColor="#674a20"
+                    android:textSize="12sp" />
+
+                <ImageView
+                    android:id="@+id/hy_header_img"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="@dimen/widget_size_50"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_default_head" />
+
+                <LinearLayout
+                    android:id="@+id/user_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/hy_header_img"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/hy_header_img"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/hy_user_level"
+                        android:layout_width="@dimen/widget_size_80"
+                        android:layout_height="@dimen/widget_size_20"
+                        android:adjustViewBounds="true"
+                        android:scaleType="fitStart"
+                        android:src="@drawable/ic_vip_level" />
+
+
+                    <TextView
+                        android:id="@+id/hy_center_user_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/hy_user_level"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="@dimen/widget_size_6"
+                        android:layout_toRightOf="@id/hy_header_img"
+                        android:text="当前成长值: 0"
+                        android:textColor="#684d22"
+                        android:textSize="12sp" />
+
+                    <ProgressBar
+                        android:id="@+id/progressBar"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="140dp"
+                        android:layout_height="8dp"
+                        android:layout_below="@id/hy_center_user_info"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="@dimen/widget_size_6"
+                        android:layout_toRightOf="@id/hy_header_img"
+                        android:progress="60"
+                        android:progressDrawable="@drawable/progressbar_bg" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/unlogin_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/hy_header_img"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_toRightOf="@+id/hy_header_img"
+                    android:text="请先登录账号"
+                    android:textColor="#6a4a21"
+                    android:textSize="15sp"
+                    android:visibility="visible" />
+
+                <Button
+                    android:id="@+id/detail_btn"
+                    android:layout_width="@dimen/widget_size_80"
+                    android:layout_height="@dimen/widget_size_30"
+                    android:layout_alignTop="@+id/hy_header_img"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="@dimen/widget_size_10"
+                    android:layout_marginRight="@dimen/widget_size_10"
+                    android:background="@drawable/shape_vip_detail_button"
+                    android:text="查看详情"
+                    android:textColor="#74572b"
+                    android:textSize="@dimen/font_size_12" />
+
+
+                <View
+                    android:id="@+id/split_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_below="@id/hy_header_img"
+                    android:layout_marginLeft="@dimen/widget_size_15"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="@dimen/widget_size_15"
+                    android:background="@color/white" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/split_view"
+                    android:layout_marginTop="30dp"
+                    android:overScrollMode="never"
+                    android:paddingLeft="1dp"
+                    android:paddingRight="1dp"
+                    android:paddingBottom="@dimen/widget_size_6"
+                    android:scrollbars="none" />
+
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/widget_size_6"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_vip_later"
+                android:visibility="visible"
+                app:layout_constraintTop_toBottomOf="@+id/top" />
+        </LinearLayout>
+    </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+
+</android.support.constraint.ConstraintLayout>

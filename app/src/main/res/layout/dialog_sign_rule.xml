@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/plan_shape"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/widget_size_10"
+        android:layout_marginTop="@dimen/widget_size_10"
+        android:layout_marginRight="@dimen/widget_size_10"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/widget_size_10"
+        android:visibility="visible">
+
+        <ImageView
+            android:id="@+id/close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/widget_size_3"
+            android:layout_marginRight="@dimen/widget_size_3"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_close" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:padding="2dp"
+            android:text="签到规则"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_size_20"
+            android:textStyle="bold"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="@dimen/widget_size_10"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="@dimen/widget_size_10"
+            android:gravity="left"
+            android:padding="2dp"
+            android:text="一：每日签到\n
+1.每天只能签到一次\n
+2.每次签到可以获得8积分（后台可灵活配置）\n
+3.VIP3及以上每个月可以补签3次，最早可补签前20天内的任意一天\n
+\n
+二：连续签到\n
+1.连续签到7天可成为VIP1\n
+2.连续签到30天可成为VIP2\n
+3.连续签到60天可成为VIP3\n
+4.连续签到120天可成为VIP4\n
+5.连续签到300天可成为VIP5\n
+6.连续签到500天可成为VIP6\n
+\n
+三：断签\n
+连续签到被漏签后，重新开始计算连续签到天数\n"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_size_15"
+            android:visibility="visible" />
+
+
+        <TextView
+            android:id="@+id/copy_btn"
+            android:layout_width="@dimen/widget_size_150"
+            android:layout_height="@dimen/widget_size_40"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="@dimen/font_size_10"
+            android:gravity="center"
+            android:padding="2dp"
+            android:text="复制礼包码"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+
+</LinearLayout>

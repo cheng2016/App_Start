@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainview"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_sign_in"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="@dimen/widget_size_5">
+
+    <TextView
+        android:id="@+id/number"
+        android:layout_width="@dimen/widget_size_60"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/widget_size_3"
+        android:layout_marginBottom="@dimen/widget_size_3"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="+8积分"
+        android:textColor="#da8800"
+        android:textSize="@dimen/font_size_10" />
+
+    <ImageView
+        android:id="@+id/money"
+        android:layout_width="@dimen/widget_size_35"
+        android:layout_height="@dimen/widget_size_35"
+        android:layout_centerInParent="true"
+        android:src="@drawable/ic_money" />
+
+    <TextView
+        android:id="@+id/day"
+        android:layout_width="@dimen/widget_size_60"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/widget_size_3"
+        android:layout_marginBottom="@dimen/widget_size_3"
+        android:gravity="center"
+        android:text="第一天"
+        android:includeFontPadding="false"
+        android:textColor="#6f5d49"
+        android:textSize="@dimen/font_size_12" />
+</LinearLayout>

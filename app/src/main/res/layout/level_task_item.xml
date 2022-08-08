@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
+    <TextView
+        android:id="@+id/tv_task_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        tools:text = "0.50元"
+        android:textColor="@color/hy_text_color_red"
+        android:textSize="14sp" />
+    <TextView
+        android:id="@+id/tv_task_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_task_amount"
+        android:layout_marginTop="6dp"
+        android:text=""
+        tools:text = "石器大冒险 等级达到10级"
+        android:textColor="@color/hy_text_color_balck1"
+        android:textSize="12sp" />
+    <TextView
+        android:id="@+id/tv_task_draw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:text="领取"
+        android:textColor="@color/hy_text_color_white"
+        android:background="@drawable/hy_solid_gray_bule_bg_selector"
+        android:textSize="14sp" />
+   <!-- <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@+id/tv_task_info"
+        android:layout_marginTop="10dp"
+        android:background="@color/app_base_gray_bg">
+    </View>-->
+</RelativeLayout>

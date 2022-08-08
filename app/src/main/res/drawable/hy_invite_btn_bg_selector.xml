@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/hy_invite_btn_bg" android:state_enabled="true"/>
+    <item android:drawable="@drawable/hy_invite_btn_bg" android:state_selected="true"/>
+    <item android:drawable="@drawable/hy_invite_bth_gray_bg"/>
+</selector>

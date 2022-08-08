@@ -1,9 +1,9 @@
 package com.huiyao.gamecenter;
 
+import com.google.gson.Gson;
 import com.huiyao.gamecenter.data.entity.NewsList;
 import com.huiyao.gamecenter.data.source.remote.HttpApi;
 import com.huiyao.gamecenter.data.source.remote.HttpFactory;
-import com.google.gson.Gson;
 
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.CompositeDisposable;
@@ -28,4 +28,9 @@ public class ServiceTest {
         CompositeDisposable mCompositeDisposable = new CompositeDisposable();
         mCompositeDisposable.add(disposable);
     }
+
+
+
+
+
 }

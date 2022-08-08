@@ -35,7 +35,7 @@ public class HttpClientUtils {
                 String result = null;
                 try {
                     URL uri = new URL(actionUrl);
-                    HttpURLConnection conn = getHttpURLConnection(uri,"POST");
+                    HttpURLConnection conn = getHttpURLConnection(uri, "POST");
                     StringBuilder sb = getPostStringBuilder(params);
                     OutputStream output = conn.getOutputStream();
                     output.write(sb.toString().getBytes());
@@ -72,7 +72,7 @@ public class HttpClientUtils {
                 String result;
                 try {
                     URL uri = new URL(actionUrl);
-                    HttpURLConnection conn = getHttpURLConnection(uri,"POST");
+                    HttpURLConnection conn = getHttpURLConnection(uri, "POST");
                     StringBuilder sb = getPostStringBuilder(params);
                     OutputStream output = conn.getOutputStream();
                     output.write(sb.toString().getBytes());
@@ -101,18 +101,20 @@ public class HttpClientUtils {
     }
 
     public static void get(final String actionUrl, final Map<String, String> params, final SimpleResponseCallback callback) {
+        Log.d(TAG, " get Url : " + actionUrl);
         Executors.newCachedThreadPool().execute(new Runnable() {
             @Override
             public void run() {
                 String result;
                 try {
                     URL uri = new URL(getRequestUrl(actionUrl, params));
-                    HttpURLConnection conn = getHttpURLConnection(uri,"GET");
+                    HttpURLConnection conn = getHttpURLConnection(uri, "GET");
                     int res = conn.getResponseCode();
                     InputStream in = null;
                     switch (res) {
                         case 200:
                             result = executeData(conn, in);
+                            Log.i(TAG, "result : " + result);
                             callback.sendSuccessMessage(result);
                             break;
                         case 403:
@@ -130,7 +132,7 @@ public class HttpClientUtils {
         });
     }
 
-    public static HttpURLConnection getHttpURLConnection(URL uri, String methodType) throws Exception {
+    private static HttpURLConnection getHttpURLConnection(URL uri, String methodType) throws Exception {
         String contentType = "application/x-www-form-urlencoded";
         HttpURLConnection conn = (HttpURLConnection) uri.openConnection();
         conn.setReadTimeout(6 * 1000); // Cache max time
@@ -145,7 +147,7 @@ public class HttpClientUtils {
         return conn;
     }
 
-    public static String getRequestUrl(final String actionUrl, final Map<String, String> params) {
+    private static String getRequestUrl(final String actionUrl, final Map<String, String> params) {
         StringBuilder sb = new StringBuilder();
         for (Map.Entry<String, String> entry : params.entrySet()) {
             if (TextUtils.isEmpty(entry.getValue())) {
@@ -158,7 +160,7 @@ public class HttpClientUtils {
             sb.append("=");
             sb.append(URLEncoder.encode(entry.getValue()));
         }
-        Logger.d(TAG, "get 参数 : " + sb.toString());
+        Log.d(TAG, "get 参数 : " + sb.toString());
         final String url;
         if (actionUrl.endsWith("?")) {
             url = actionUrl + sb.toString();
@@ -169,7 +171,7 @@ public class HttpClientUtils {
         return url;
     }
 
-    public static String executeData(HttpURLConnection conn, InputStream in) throws Exception {
+    private static String executeData(HttpURLConnection conn, InputStream in) throws Exception {
         in = conn.getInputStream();
         String line;
         StringBuilder sb2 = new StringBuilder();
@@ -182,7 +184,7 @@ public class HttpClientUtils {
     }
 
 
-    public static StringBuilder getPostStringBuilder(Map<String, String> params) {
+    private static StringBuilder getPostStringBuilder(Map<String, String> params) {
         StringBuilder sb = new StringBuilder();
         for (Map.Entry<String, String> entry : params.entrySet()) {
             if (TextUtils.isEmpty(entry.getValue())) {

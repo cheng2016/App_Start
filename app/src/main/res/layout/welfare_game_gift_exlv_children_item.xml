@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff">
+
+    <TextView
+        android:id="@+id/tv_game_gift_title"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/widget_size_25"
+        android:layout_marginLeft="@dimen/widget_size_25"
+        android:layout_marginTop="@dimen/widget_size_5"
+        android:drawableLeft="@mipmap/ic_walfare_gift"
+        android:drawablePadding="@dimen/widget_min_size_2"
+        android:gravity="center_vertical"
+        android:text="礼包名称"
+        android:textColor="@color/hy_text_color_balck1"
+        android:textSize="@dimen/font_size_13" />
+
+    <TextView
+        android:id="@+id/tv_gift_game_info"
+        android:layout_width="match_parent"
+        android:layout_alignRight="@id/view_btn"
+        android:layout_height="@dimen/widget_size_20"
+        android:layout_below="@+id/tv_game_gift_title"
+        android:layout_alignLeft="@+id/tv_game_gift_title"
+        android:layout_marginRight="@dimen/widget_size_70"
+        android:gravity="center_vertical"
+        android:includeFontPadding="false"
+        android:text="金币X1000元宝100食材 "
+        android:ellipsize="end"
+        android:maxEms="20"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:textColor="@color/hy_text_color_gray"
+        android:textSize="@dimen/font_size_11"
+        tools:text="金币X1000元宝100食材" />
+
+    <Button
+        android:id="@+id/view_btn"
+        android:layout_width="@dimen/widget_size_55"
+        android:layout_height="@dimen/widget_size_25"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/widget_size_25"
+        android:background="@drawable/shape_button_gift_see"
+        android:gravity="center"
+        android:paddingLeft="8dp"
+        android:paddingTop="2dp"
+        android:paddingRight="8dp"
+        android:paddingBottom="2dp"
+        android:text="查看"
+        android:textColor="@color/hy_text_color_white"
+        android:textSize="10sp"
+        tools:text="查看" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@+id/tv_gift_game_info"
+        android:layout_marginLeft="@dimen/widget_size_24"
+        android:layout_marginTop="@dimen/widget_size_3"
+        android:layout_marginRight="@dimen/widget_size_24"
+        android:background="@color/split_line_bg"
+        android:visibility="visible" />
+</RelativeLayout>

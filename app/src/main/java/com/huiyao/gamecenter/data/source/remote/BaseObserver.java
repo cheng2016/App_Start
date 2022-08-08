@@ -2,9 +2,9 @@ package com.huiyao.gamecenter.data.source.remote;
 
 import android.net.ParseException;
 
+import com.google.gson.JsonParseException;
 import com.huiyao.gamecenter.App;
 import com.huiyao.gamecenter.util.ToastUtils;
-import com.google.gson.JsonParseException;
 
 import org.apache.http.conn.ConnectTimeoutException;
 import org.json.JSONException;

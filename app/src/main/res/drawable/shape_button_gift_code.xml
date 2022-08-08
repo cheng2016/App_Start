@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+    <!--    <corners android:radius="6dp"/>-->
+    <solid android:color="@color/split_line_bg"/>
+
+    <stroke android:color="@color/split_line_bg" android:width="@dimen/widget_min_size_2"/>
+
+    <corners
+        android:radius="@dimen/widget_size_15"/>
+</shape>

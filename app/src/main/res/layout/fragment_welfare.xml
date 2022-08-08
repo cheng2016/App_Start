@@ -6,7 +6,125 @@
     android:background="@color/app_content_bg"
     android:orientation="vertical">
 
-    <include layout="@layout/action_bar" />
+    <RadioGroup
+        android:id="@+id/top_menu"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="2dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/hy_rb_game_gift"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/hy_radiobutton_blue_line"
+            android:button="@null"
+            android:checked="true"
+            android:gravity="center"
+            android:text="游戏礼包"
+            android:textColor="@drawable/hy_black_gray_text_color_selector"
+            android:textSize="14sp"
+            android:visibility="visible" />
+
+        <RadioButton
+            android:id="@+id/hy_rb_case_redpack"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/hy_radiobutton_blue_line"
+            android:button="@null"
+            android:gravity="center"
+            android:text="现金红包"
+            android:textColor="@drawable/hy_black_gray_text_color_selector"
+            android:textSize="14sp"
+            android:visibility="visible" />
+
+    </RadioGroup>
 
 
+    <!--游戏礼包内容块-->
+    <RelativeLayout
+        android:id="@+id/ll_game_gift_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/widget_size_3"
+        android:layout_marginTop="@dimen/widget_size_5"
+        android:layout_marginRight="@dimen/widget_size_3"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <com.scwang.smart.refresh.layout.SmartRefreshLayout
+            android:id="@+id/smart_refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/game_gift_recycher_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+
+
+      <!--  <com.huiyao.gamecenter.view.SimpleRefreshLayout
+            android:id="@+id/hy_exlv_refreshLayout"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:layout_height="match_parent">
+
+            <ListView
+                android:id="@+id/hy_game_gift_exlistview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@color/app_content_bg"
+                android:dividerHeight="@dimen/widget_size_3" />
+        </com.huiyao.gamecenter.view.SimpleRefreshLayout>-->
+        <TextView
+            android:id="@+id/tv_gift_pack_no_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="16sp"
+            android:textColor="@color/hy_text_color_gray"
+            android:text="敬请期待!"
+            android:visibility="gone"/>
+    </RelativeLayout>
+    <!--现金红包内容块-->
+    <RelativeLayout
+        android:id="@+id/ll_case_pack_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/widget_size_3"
+        android:layout_marginTop="@dimen/widget_size_5"
+        android:layout_marginRight="@dimen/widget_size_3"
+        android:orientation="vertical"
+        android:visibility="gone">
+        <com.huiyao.gamecenter.view.SimpleRefreshLayout
+            android:id="@+id/hy_lv_refreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ListView
+                android:id="@+id/hy_float_redpack_detail_listview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:divider="@color/app_base_gray_bg"
+                android:dividerHeight="4dp"
+                android:scrollbars="none" />
+        </com.huiyao.gamecenter.view.SimpleRefreshLayout>
+
+        <TextView
+            android:id="@+id/tv_case_pack_no_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="16sp"
+            android:textColor="@color/hy_text_color_gray"
+            android:text="敬请期待!"
+            android:visibility="gone"/>
+    </RelativeLayout>
 </LinearLayout>

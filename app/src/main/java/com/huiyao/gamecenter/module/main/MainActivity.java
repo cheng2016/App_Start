@@ -7,16 +7,18 @@ import android.widget.RadioGroup;
 import com.blankj.utilcode.util.ToastUtils;
 import com.huiyao.gamecenter.R;
 import com.huiyao.gamecenter.base.BaseActivity;
+import com.huiyao.gamecenter.data.source.remote.AppInitHelp;
+import com.huiyao.gamecenter.util.DownloadManagerUtils;
 import com.huiyao.gamecenter.util.Logger;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 
 public class MainActivity extends BaseActivity {
     @Bind(R.id.vp_horizontal_ntb)
     ViewPager viewPager;
     @Bind(R.id.radio_group)
     RadioGroup radioGroup;
+
 
     public static final int DEFAULT_INDEX = 1;
 
@@ -37,14 +39,17 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onPageSelected(int position) {
 //                radioGroup.check(position + 1);
-                switch (position){
+                switch (position) {
                     case 0:
                         radioGroup.check(R.id.first_page);
                         break;
                     case 1:
-                        radioGroup.check(R.id.message);
+                        radioGroup.check(R.id.vip);
                         break;
                     case 2:
+                        radioGroup.check(R.id.message);
+                        break;
+                    case 3:
                         radioGroup.check(R.id.me);
                         break;
                     default:
@@ -60,17 +65,20 @@ public class MainActivity extends BaseActivity {
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
-                Logger.i(TAG,"onCheckedChanged：" + checkedId);
+                Logger.i(TAG, "onCheckedChanged：" + checkedId);
 //                viewPager.setCurrentItem(checkedId - 1);
-                switch (checkedId){
+                switch (checkedId) {
                     case R.id.first_page: //
                         checkedId = 0;
                         break;
-                    case R.id.message: //
+                    case R.id.vip: //
                         checkedId = 1;
                         break;
-                    case R.id.me: //发现
+                    case R.id.message: //
                         checkedId = 2;
+                        break;
+                    case R.id.me: //发现
+                        checkedId = 3;
                         break;
                     default:
                         break;
@@ -78,65 +86,22 @@ public class MainActivity extends BaseActivity {
                 viewPager.setCurrentItem(checkedId);
             }
         });
-
-        /*final String[] colors = getResources().getStringArray(R.array.default_preview);
-        final NavigationTabBar navigationTabBar = (NavigationTabBar) findViewById(R.id.ntb_horizontal);
-        final ArrayList<NavigationTabBar.Model> models = new ArrayList<>();
-        models.add(
-                new NavigationTabBar.Model.Builder(
-                        getResources().getDrawable(R.mipmap.btn_device),
-                        Color.parseColor(colors[0]))
-                        .selectedIcon(getResources().getDrawable(R.mipmap.btn_device_current))
-                        .title(getString(R.string.device))
-//                        .badgeTitle("NTB")
-                        .build()
-        );
-        models.add(
-                new NavigationTabBar.Model.Builder(
-                        getResources().getDrawable(R.mipmap.btn_message),
-                        Color.parseColor(colors[1]))
-                        .selectedIcon(getResources().getDrawable(R.mipmap.btn_message_current))
-                        .title(getString(R.string.message))
-//                        .badgeTitle("with")
-                        .build()
-        );
-
-        models.add(
-                new NavigationTabBar.Model.Builder(
-                        getResources().getDrawable(R.mipmap.btn_mine),
-                        Color.parseColor(colors[2]))
-                        .selectedIcon(getResources().getDrawable(R.mipmap.btn_mine_current))
-                        .title(getString(R.string.my))
-//                        .badgeTitle("with")
-                        .build()
-        );
-
-        navigationTabBar.setModels(models);
-        navigationTabBar.setTitleMode(NavigationTabBar.TitleMode.ALL);
-        navigationTabBar.setViewPager(viewPager, 0);
-        navigationTabBar.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(final int position, final float positionOffset, final int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(final int position) {
-                navigationTabBar.getModels().get(position).hideBadge();
-            }
-
-            @Override
-            public void onPageScrollStateChanged(final int state) {
-
-            }
-        });*/
+        DownloadManagerUtils.getInstance(this).registerDownloadReceiver(this);
     }
 
     @Override
     protected void initData() {
-
+        Logger.d("请求初始化接口...");
+        AppInitHelp.initAppData(this);
+        //检查是否有app版本更新
+        CheckAppUpdateUtils.getInstance(this).checkAppUpdate();
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        DownloadManagerUtils.getInstance(this).unregisterDownLoadReceiver(this);
+    }
 
     //双击返回键 退出
     //----------------------------------------------------------------------------------------------
@@ -154,9 +119,4 @@ public class MainActivity extends BaseActivity {
         mBackPressed = System.currentTimeMillis();
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        ButterKnife.bind(this);
-    }
 }

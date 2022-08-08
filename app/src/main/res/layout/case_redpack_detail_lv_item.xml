@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="6dp"
+    android:paddingBottom="6dp"
+    xmlns:tools="http://schemas.android.com/tools">
+    <TextView
+        android:id="@+id/tv_monney"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="礼包名称"
+        android:textColor="@color/hy_text_color_balck1"
+        android:textSize="12sp" />
+    <TextView
+        android:id="@+id/tv_welfare_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_monney"
+        android:layout_marginTop="4dp"
+        android:layout_marginRight="50dp"
+        android:text=""
+        tools:text="石器大冒险"
+        android:textColor="@color/hy_text_color_balck1"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/tv_gift_game_draw"
+        android:layout_width="50dp"
+        android:layout_height="20dp"
+        android:background="@drawable/hy_radius_bule_bg"
+        android:layout_alignParentRight="true"
+        android:layout_alignBottom="@+id/tv_welfare_info"
+        android:gravity="center"
+        android:text=""
+        tools:text = "未领取"
+        android:textColor="@color/hy_text_color_white"
+        android:textSize="10sp"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="6dp"
+        android:background="@color/hy_text_color_gray"
+        android:layout_below="@+id/tv_welfare_info"/>
+</RelativeLayout>

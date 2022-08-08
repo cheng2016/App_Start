@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_content_bg"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/layout_title"
+        layout="@layout/action_bar" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="15dp"
+        android:background="@drawable/hy_radius_white_bg"
+        android:paddingTop="10dp">
+
+        <TextView
+            android:id="@+id/tv_user_money_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="我的余额"
+            android:textColor="@color/hy_text_color_balck1"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_user_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_user_money_title"
+            android:layout_alignLeft="@+id/tv_user_money_title"
+            android:layout_marginTop="15dp"
+            android:text=""
+            android:textColor="@color/hy_text_color_red"
+            android:textSize="16sp"
+            tools:text="999.99元" />
+
+        <TextView
+            android:id="@+id/tv_withdraw"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/hy_radius_bule_bg"
+            android:gravity="center"
+            android:text="提现"
+            android:textColor="@color/hy_text_color_white"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_withdraw_tip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="6dp"
+            android:gravity="center"
+            android:text="@string/hy_withdraw_tips"
+            android:textColor="@color/hy_text_color_gray"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+        <View
+            android:id="@+id/line_top"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_above="@+id/tv_withdraw_tip"
+            android:layout_marginTop="20dp"
+            android:background="@color/app_base_gray_bg"></View>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="金额记录"
+            android:textColor="@color/hy_text_color_balck1"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/income"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:background="@drawable/hy_blue_gary_radiabutton_left_selector"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:text="收入记录"
+                android:textColor="@drawable/hy_white_black_text_color_selector"
+                android:textSize="14sp"></RadioButton>
+
+            <RadioButton
+                android:id="@+id/pay"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:background="@drawable/hy_blue_gary_radiabutton_right_selector"
+                android:button="@null"
+                android:gravity="center"
+                android:text="支出记录"
+                android:textColor="@drawable/hy_white_black_text_color_selector"
+                android:textSize="14sp"></RadioButton>
+        </RadioGroup>
+
+        <com.huiyao.gamecenter.view.SimpleRefreshLayout
+            android:id="@+id/hy_refreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ListView
+                    android:id="@+id/lv_order_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:divider="@color/hy_text_color_white"
+                    android:dividerHeight="0dp"
+                    android:scrollbars="none"/>
+
+                <TextView
+                    android:id="@+id/empty_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="@dimen/font_size_14"
+                    android:textColor="@color/black"
+                    android:text="您当前没有收入"/>
+            </FrameLayout>
+    </com.huiyao.gamecenter.view.SimpleRefreshLayout>
+</LinearLayout></LinearLayout>

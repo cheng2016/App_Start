@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/hot_img"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/widget_size_160"
+        android:scaleType="fitXY"
+        android:src="@mipmap/hy_ic_small_banner" />
+
+    <TextView
+        android:id="@+id/hot_name_tv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/widget_size_30"
+        android:alpha="0.5"
+        android:layout_alignBottom="@id/hot_img"
+        android:background="@drawable/shape_main_textview_bg"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="@dimen/widget_size_10"
+        android:text="点金猎人"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_size_16"
+        android:visibility="visible" />
+</RelativeLayout>

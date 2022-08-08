@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.huiyao.gamecenter.view.SimpleDraweeViewFix
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    fresco:placeholderImage="@drawable/default_image"
+    fresco:placeholderImageScaleType="centerCrop"
+    roundWithOverlayColor="#00000000"
+    fresco:failureImageScaleType="centerCrop"
+    fresco:roundedCornerRadius="8dp">
+
+</com.huiyao.gamecenter.view.SimpleDraweeViewFix>

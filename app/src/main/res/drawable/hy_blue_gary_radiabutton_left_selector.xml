@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item   android:state_checked="true">
+        <shape>
+            <!-- 填充 -->
+            <solid android:color="@color/hy_button_color_blue" />
+            <!-- 角度 -->
+            <corners android:topLeftRadius="8dp" android:bottomLeftRadius="8dp" />
+            <!-- 描边 -->
+            <stroke android:width="0px" android:color="#037BFF" />
+        </shape>
+    </item>
+    <item   android:state_checked="false">
+        <shape>
+            <!-- 填充 -->
+            <solid android:color="@color/app_base_gray_bg" />
+            <!-- 角度 -->
+            <corners android:topLeftRadius="8dp" android:bottomLeftRadius="8dp" />
+            <!-- 描边 -->
+            <stroke android:width="0px" android:color="#DBDBDB" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <!-- 填充 -->
+            <solid android:color="@color/app_base_gray_bg" />
+            <!-- 角度 -->
+            <corners android:topLeftRadius="8dp" android:bottomLeftRadius="8dp" />
+            <!-- 描边 -->
+            <stroke android:width="0px" android:color="#DBDBDB" />
+        </shape>
+    </item>
+</selector>

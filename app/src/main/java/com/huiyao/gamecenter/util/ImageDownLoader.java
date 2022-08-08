@@ -33,7 +33,7 @@ import java.util.concurrent.Executors;
 
 /**
  * @ClassName ImageUtils
- * @Description 三级缓存的图片加载库，代码短效精悍，使用于代码低耦合的sdk场景
+ * @Description
  * @Author chengzj
  * @Date 2021/8/10 9:55
  */
@@ -57,40 +57,79 @@ public class ImageDownLoader {
         mMemoryCache = new ImageCache(paramContext);
     }
 
-    private void downloadImage(final ImageView imageView, final String url) {
-        Log.d(TAG, "网络加载：" + url);
-        final Handler handler = new Handler(Looper.getMainLooper()) {
-            @Override
-            public void handleMessage(Message msg) {
-                super.handleMessage(msg);
-                Bitmap bit = (Bitmap) msg.obj;
-                if (bit != null)
-                    imageView.setImageBitmap(bit);
-            }
-        };
-        Executors.newFixedThreadPool(2).execute(new Runnable() {
-            @Override
-            public void run() {
-                Bitmap bitmap = null;
-                URL imgUrl = null;
-                try {
-                    imgUrl = new URL(url);
-                    HttpURLConnection conn = (HttpURLConnection) imgUrl
-                            .openConnection();
-                    conn.setDoInput(true);
-                    conn.connect();
-                    InputStream is = conn.getInputStream();
-                    bitmap = BitmapFactory.decodeStream(is);
-//                    bitmap = compressImage(bitmap);
-                    is.close();
-                    addBitmapToMemoryCache(url, bitmap);
-                    mMemoryCache.putDiskCache(bitmap, url);
-                    handler.sendMessage(handler.obtainMessage(0, bitmap));
-                } catch (IOException e) {
-                    e.printStackTrace();
+    final Handler handler = new Handler(Looper.getMainLooper()) {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            Object[] objects = (Object[]) msg.obj;
+            Log.d(TAG, "handleMessage object lenght = " + objects.length);
+            if (objects != null && objects.length >= 2) {
+                ImageView imageView = (ImageView) objects[0];
+                Bitmap bitmap = (Bitmap) objects[1];
+                OnLoadImageListener listener = objects.length > 2 ? (OnLoadImageListener) objects[2] : null;
+                if (msg.what == 2) {
+                    if (listener != null) {
+                        listener.onSuccess(imageView,bitmap);
+                    }else {
+                        imageView.setImageBitmap(bitmap);
+                    }
+                } else if (msg.what == -1) {
+                    if (listener != null) listener.onFailed();
                 }
+            } else {
+                Log.e(TAG, "handleMessage erro");
             }
-        });
+        }
+    };
+
+    private void downloadImage(final ImageView imageView, final String url) {
+        downloadImage(imageView, url, null);
+    }
+
+    private void downloadImage(final ImageView imageView, final String url, OnLoadImageListener listener) {
+        Log.d(TAG, "网络加载：" + url);
+        Executors.newFixedThreadPool(2).execute(new ImageRunnableImage(imageView, url, listener));
+    }
+
+
+    private final class ImageRunnableImage implements Runnable {
+        ImageView imageView;
+        String url;
+        OnLoadImageListener listener;
+
+        public ImageRunnableImage(ImageView imageView, String url) {
+            this.imageView = imageView;
+            this.url = url;
+        }
+
+        public ImageRunnableImage(ImageView imageView, String url, OnLoadImageListener listener) {
+            this.imageView = imageView;
+            this.url = url;
+            this.listener = listener;
+        }
+
+        @Override
+        public void run() {
+            Bitmap bitmap = null;
+            URL imgUrl = null;
+            try {
+                imgUrl = new URL(url);
+                HttpURLConnection conn = (HttpURLConnection) imgUrl
+                        .openConnection();
+                conn.setDoInput(true);
+                conn.connect();
+                InputStream is = conn.getInputStream();
+                bitmap = BitmapFactory.decodeStream(is);
+//                    bitmap = compressImage(bitmap);
+                is.close();
+                addBitmapToMemoryCache(url, bitmap);
+                mMemoryCache.putDiskCache(bitmap, url);
+                handler.sendMessage(handler.obtainMessage(2, new Object[]{imageView, bitmap, listener}));
+            } catch (IOException e) {
+                Logger.e(e.getMessage(), e);
+                handler.sendMessage(handler.obtainMessage(-1, new Object[]{imageView, bitmap, listener}));
+            }
+        }
     }
 
     private void addBitmapToMemoryCache(String paramString, Bitmap paramBitmap) {
@@ -113,23 +152,46 @@ public class ImageDownLoader {
         return bitmap;
     }
 
-    public void load(ImageView imageView, String url) {
-        if (TextUtils.isEmpty(url)) return;
+    private Bitmap getBitmap(String url) {
+        if (TextUtils.isEmpty(url)) return null;
         Bitmap bitmap = getBitmapFromMemCache(url);
         if (bitmap != null) {
-//            Log.d(TAG, "内存加载：" + url);
-            imageView.setImageBitmap(bitmap);
-            return;
+            Log.d(TAG, "内存中加载：" + url);
+            return bitmap;
         }
 
         bitmap = mMemoryCache.getDiskCache(url);
         if (bitmap != null) {
-            Log.d(TAG, "磁盘加载：" + url);
+            Log.d(TAG, "磁盘中加载：" + url);
             addBitmapToMemoryCache(url, bitmap);
-            imageView.setImageBitmap(bitmap);
-            return;
+            return bitmap;
         }
-        downloadImage(imageView, url);
+        return null;
+    }
+
+    public ImageDownLoader load(ImageView imageView, String url) {
+        load(imageView, url, null);
+        return this;
+    }
+
+    public ImageDownLoader load(ImageView imageView, String url, OnLoadImageListener listener) {
+        if(TextUtils.isEmpty(url)){
+            throw new IllegalStateException("image url can not be null");
+        }
+        Bitmap bitmap = getBitmap(url);
+        if (bitmap != null) {
+            handler.sendMessage(handler.obtainMessage(2, new Object[]{imageView, bitmap, listener}));
+        } else {
+            downloadImage(imageView, url, listener);
+        }
+        return this;
+    }
+
+
+    public interface OnLoadImageListener {
+        void onSuccess(ImageView imageView,Bitmap bitmap);
+
+        void onFailed();
     }
 
     public static class ImageCache extends LruCache<String, Bitmap> {
@@ -175,6 +237,8 @@ public class ImageDownLoader {
                     paramString = diskpath + File.separator + md5(paramString) + ".jpg";
                 } else if (paramString.endsWith(".png")) {
                     paramString = diskpath + File.separator + md5(paramString) + "png";
+                } else {
+                    paramString = diskpath + File.separator + md5(paramString);
                 }
                 File file = new File(paramString);
                 if (file.exists() ? file.createNewFile() : (file.getParentFile().exists() ? file.createNewFile() : file.getParentFile().mkdirs())) {
@@ -182,7 +246,7 @@ public class ImageDownLoader {
                     paramBitmap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
                     fileOutputStream.flush();
                     fileOutputStream.close();
-                    Log.i(TAG, "写入磁盘中 " + paramString);
+                    Log.d(TAG, "写入磁盘中 " + paramString);
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -196,6 +260,8 @@ public class ImageDownLoader {
                 paramString = diskpath + File.separator + md5(paramString) + ".jpg";
             } else if (paramString.endsWith(".png")) {
                 paramString = diskpath + File.separator + md5(paramString) + "png";
+            } else {
+                paramString = diskpath + File.separator + md5(paramString);
             }
             if (new File(paramString).exists()) {
                 return BitmapFactory.decodeFile(paramString);

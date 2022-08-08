@@ -2,21 +2,162 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.huiyao.gamecenter">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+
     <application
         android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".module.main.MainActivity" android:screenOrientation="portrait">
+
+
+        <activity android:name=".module.splash.SplashActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name="com.huiyao.gamecenter.module.main.MainActivity" android:screenOrientation="portrait"/>
+
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="{applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+
+        <!-- required 极光一键登录-->
+        <activity
+            android:name="com.cmic.sso.sdk.activity.OAuthActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="unspecified"
+            android:theme="@style/HY_Login_dialog"
+            >
+        </activity>
+        <!-- required -->
+        <activity
+            android:name="com.cmic.sso.sdk.activity.LoginAuthActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="unspecified"
+            android:theme="@style/HY_Login_dialog"
+            android:launchMode="singleTop">
+        </activity>
+        <!-- Required -->
+        <activity android:name="cn.jiguang.verifysdk.CtLoginActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="unspecified"
+            android:theme="@style/HY_Login_dialog"
+            android:launchMode="singleTop">
+        </activity>
+
+        <!--极光 一键登录参数-->
+        <meta-data
+            android:name="JPUSH_APPKEY"
+            android:value="b071655bd68773b8299945c8" /> <!-- </>值来自开发者平台取得的AppKey -->
+        <meta-data
+            android:name="JPUSH_CHANNEL"
+            android:value="default_developer" />
+
+        <!--极光一键登录 end-->
+        <activity android:name="com.huiyao.gamecenter.module.first.detail.GameDetailActivity" android:screenOrientation="portrait"/>
+
+        <activity android:name=".module.user.withdrawal.BindWxActivity"  android:screenOrientation="portrait"/>
+
+        <activity android:name=".module.user.withdrawal.WithdrawalActivity" android:screenOrientation="portrait"/>
+
+        <activity android:name=".module.user.wallet.UserWalletActivity" android:screenOrientation="portrait"/>
+
+        <activity android:name=".module.welfare.CaseRedpackDetailActivity" android:screenOrientation="portrait"/>
+
+        <activity android:name=".module.user.InviteFriendsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+
+        <activity android:name=".module.first.sign.SignInActivity" android:screenOrientation="portrait" />
+
+        <activity android:name=".module.web.WebActivity" android:screenOrientation="portrait"/>
+
+        <activity android:name=".module.user.score.UserScoreActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".module.vip.my.MyVipActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".module.vip.detail.VipDetailActivity" android:screenOrientation="portrait"/>
+        <!--<activity android:name=".module.web.HYGame_FloatCustomerService" android:screenOrientation="portrait"/>-->
+        <activity
+            android:name=".module.web.CustomerWebActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:windowSoftInputMode="stateHidden|adjustPan"
+            android:hardwareAccelerated="true"
+            >
+        </activity>
+        <!--是否需要hy sdk 在闪屏中 拉权限-->
+
+
+        <!--微信授权登录START-->
+        <activity
+            android:name="com.huiyao.gamecenter.wxapi.WXEntryActivity"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:exported="true"
+            android:taskAffinity="com.tencent.tmgp.hygmjxfm"
+            android:launchMode="singleTask">
+        </activity>
+
+        <!--应用宝appid-->
+        <meta-data
+            android:name="WX_APP_ID"
+            android:value="wx7297dee4dec69828"/>
+
+        <!--微信授权登录END-->
+
+
+
+
+
+
+        <meta-data
+            android:name="HY_PERMISSION_NEED"
+            android:value="1"/>
+
+        <meta-data
+            android:name="HY_PRIVACY_DIALOG_SHOW"
+            android:value="1"/>
+
+        <meta-data
+            android:name="HY_GAME_ID"
+            android:value="2061"/>
+        <!--<meta-data
+            android:name="HY_GAME_ID"
+            android:value="1500"/>-->
+        <meta-data
+            android:name="HY_CHANNEL_CODE"
+            android:value="154"/>
+        <meta-data
+            android:name="HY_CHANNEL_TYPE"
+            android:value="HyAndroid"/>
+
+        <meta-data
+            android:name="design_width_in_dp"
+            android:value="360"/>
+        <meta-data
+            android:name="design_height_in_dp"
+            android:value="720"/>
     </application>
 
 </manifest>

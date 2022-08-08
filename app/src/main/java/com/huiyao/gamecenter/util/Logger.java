@@ -32,6 +32,8 @@ public class Logger {
 
     private static int myPid;
 
+    public static final String defaultTag = "HY";
+
     private static String logFilePath;
 
     private static  String logFoldPath;
@@ -66,6 +68,16 @@ public class Logger {
             this.value = value;
         }
     }
+
+    public static final void i(String msg) {
+        if (currentLevel.value > Level.INFO.value)
+            return;
+        if (isWriter) {
+            write(defaultTag, msg, "I");
+        }
+        Log.i(defaultTag, msg);
+    }
+
 
     public static final void i(String tag, String msg) {
         if (currentLevel.value > Level.INFO.value)
@@ -103,6 +115,15 @@ public class Logger {
         Log.v(tag, msg, throwable);
     }
 
+    public static final void d(String msg) {
+        if (currentLevel.value > Level.DEBUG.value)
+            return;
+        if (isWriter) {
+            write(defaultTag, msg, "D");
+        }
+        Log.d(defaultTag, msg);
+    }
+
     public static final void d(String tag, String msg) {
         if (currentLevel.value > Level.DEBUG.value)
             return;
@@ -121,6 +142,19 @@ public class Logger {
         Log.d(tag, msg, throwable);
     }
 
+    public static final void e(String msg) {
+        if (currentLevel.value > Level.ERROR.value)
+            return;
+        if (isWriter) {
+            write(defaultTag, msg, "E");
+        }
+        Log.e(defaultTag, msg);
+    }
+
+    public static final void e( String msg,Throwable throwable) {
+        Log.e(null, msg,throwable);
+    }
+
     public static final void e(String tag, String msg) {
         if (currentLevel.value > Level.ERROR.value)
             return;
@@ -131,13 +165,14 @@ public class Logger {
     }
 
     public static final void e(String tag, String msg, Throwable throwable) {
-        if (currentLevel.value > Level.ERROR.value)
-            return;
         if (isWriter) {
             write(tag, msg, "E", throwable);
         }
         Log.e(tag, msg, throwable);
     }
+
+
+
 
     public static final void w(String tag, String msg) {
         if (currentLevel.value > Level.WARN.value)
@@ -260,6 +295,8 @@ public class Logger {
             Logger.isWriter = false;
             return;
         }
+        pkgName = appCtx.getPackageName();
+        myPid = Process.myPid();
         Logger.isWriter = isWriter;
         if (!Logger.isWriter) {//不保存日志到文件
             return;
@@ -270,8 +307,6 @@ public class Logger {
         } else {
             logFoldPath = appCtx.getCacheDir().getAbsolutePath() + "/v4/logger/";
         }
-        pkgName = appCtx.getPackageName();
-        myPid = Process.myPid();
         File logFold = new File(logFoldPath);
         boolean flag;
         if (!(flag = logFold.exists()))

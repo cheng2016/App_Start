@@ -3,7 +3,6 @@ package com.huiyao.gamecenter.util;
 
 import android.animation.ObjectAnimator;
 import android.app.Dialog;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;

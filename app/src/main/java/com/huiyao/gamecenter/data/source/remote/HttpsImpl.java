@@ -2,11 +2,11 @@ package com.huiyao.gamecenter.data.source.remote;
 
 import android.content.Context;
 
+import com.google.gson.Gson;
 import com.huiyao.gamecenter.data.entity.GetWXTokenResp;
 import com.huiyao.gamecenter.data.entity.GetWxUserInfoResp;
 import com.huiyao.gamecenter.util.Logger;
 import com.huiyao.gamecenter.wxapi.WXEntryActivity;
-import com.google.gson.Gson;
 
 import org.greenrobot.eventbus.EventBus;
 

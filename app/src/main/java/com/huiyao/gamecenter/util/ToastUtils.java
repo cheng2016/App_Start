@@ -3,6 +3,8 @@ package com.huiyao.gamecenter.util;
 import android.content.Context;
 import android.widget.Toast;
 
+import com.huiyao.gamecenter.App;
+
 
 /**
  * Toast统一管理类
@@ -17,6 +19,10 @@ public class ToastUtils {
 
     public static boolean isShow = true;
 
+    public static void showShort(CharSequence message) {
+        showShort(App.getInstance(), message);
+    }
+
     /**
      * 短时间显示Toast
      *
@@ -24,6 +30,7 @@ public class ToastUtils {
      * @param message
      */
     public static void showShort(Context context, CharSequence message) {
+        if (context == null) return;
         if (null == toast) {
             toast = Toast.makeText(context, message, Toast.LENGTH_SHORT);
             // toast.setGravity(Gravity.CENTER, 0, 0);

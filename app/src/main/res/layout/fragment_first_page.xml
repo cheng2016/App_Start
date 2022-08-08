@@ -6,7 +6,22 @@
     android:background="@color/app_content_bg"
     android:orientation="vertical">
 
-        <include layout="@layout/action_bar" />
+    <com.huiyao.gamecenter.view.SimpleRefreshLayout
+        android:id="@+id/hy_lv_refreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/game_listview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="35dp"
+            android:divider="@color/app_base_gray_bg"
+            android:dividerHeight="0dp"
+            android:scrollbars="none" />
+
+    </com.huiyao.gamecenter.view.SimpleRefreshLayout>
+
 
 
 </LinearLayout>

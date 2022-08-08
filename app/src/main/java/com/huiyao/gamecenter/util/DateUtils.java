@@ -7,6 +7,12 @@ import java.util.Date;
  * Created by chengzj on 2017/6/22.
  */
 public class DateUtils {
+    public static void main(String[] args){
+        String time = "1655974264";
+        System.out.println(timeStamp( time));
+    }
+
+
     private static final SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
 
 
@@ -22,6 +28,7 @@ public class DateUtils {
     }
 
 
+
     /**
      * 时间戳转换成日期格式字符串
      * @param seconds 精确到毫秒的字符串
@@ -33,6 +40,14 @@ public class DateUtils {
         }
 //        return LongFormatTime(format.format(new Date(Long.valueOf(seconds))));
         return format.format(new Date(Long.valueOf(seconds)));
+    }
+
+    public static String timeStamp(String seconds) {
+        if(seconds == null || seconds.isEmpty() || seconds.equals("null")){
+            return "";
+        }
+//        return LongFormatTime(format.format(new Date(Long.valueOf(seconds))));
+        return format.format(new Date(Long.valueOf(seconds) * 1000));
     }
 
     /**
