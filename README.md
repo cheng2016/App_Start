@@ -3,12 +3,6 @@
 
 
 
-### Contact Me
-
-- Github: github.com/cheng2016
-- Email: mitnick.cheng@outlook.com
-- QQ: 1102743539
-
 青山绿水今犹在 不见当年少年郎 
  
 可怜痴情错付了 世上从此无良人
@@ -471,7 +465,13 @@ public class SuperSwipeRefreshLayout extends SwipeRefreshLayout {
 	解决方案
 	使用android:scaleType="fitStart"和android:adjustViewBounds="true"。
 	
-	 
+
+
+### Contact Me
+
+- Github: github.com/cheng2016
+- Email: mitnick.cheng@outlook.com
+- QQ: 1102743539	 
 
 # License
 
